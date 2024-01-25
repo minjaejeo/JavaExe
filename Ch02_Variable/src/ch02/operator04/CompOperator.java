@@ -14,6 +14,6 @@ public class CompOperator {
 		System.out.println(bVal);
 		bVal = num0 >= num2;	// 100 >= 100
 		System.out.println(bVal);	//true
-				
+		
 	}
 }
