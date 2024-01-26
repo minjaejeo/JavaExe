@@ -7,7 +7,7 @@ public class Resolve6 {
 		do {
 			System.out.println(i + ", " + sum);
 			i++;
-			sum += i;
+			sum = sum + i;
 			
 		}while(i<=10);
 	}
