@@ -14,5 +14,4 @@ public class Resolve6 {
 		System.out.println("1~10의 총합 : "+sum);
 	}
 	// 수정
-
 }
