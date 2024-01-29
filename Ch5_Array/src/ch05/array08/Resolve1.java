@@ -8,12 +8,15 @@ import java.util.Arrays;
  */
 public class Resolve1 {
 	public static void main(String[] args) {
-		int[] scores = {22,36,75,45,28};
-		System.out.println(Arrays.toString(scores));
+		int[] numArr = {10,99,2,78,32};
 		
-		Arrays.sort(scores);
+		System.out.println(Arrays.toString(numArr));
 		
-		System.out.println(Arrays.toString(scores));
+		Arrays.sort(numArr);
+		System.out.println(Arrays.toString(numArr));
+		
+		System.out.println("최소값은 " + numArr[0]);
+		System.out.println("최대값은 " + numArr[numArr.length-1]);
 	}
 
 }

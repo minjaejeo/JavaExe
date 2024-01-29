@@ -11,14 +11,42 @@ public class Resolve6 {
 		 */
 		Scanner sc = new Scanner(System.in);
 		
-		String[] stu = new String[5];
-		int[] sco = new int[5];
-		for(int i=1;i<=5;i++) {
+		String[] nameArr = new String[5];
+		int[] scoreArr = new int[5];
+		char[] chScoreArr = new char[5];
+		/* 5명의 학생이름과 점수 입력*/
+		for(int i=1;i<=nameArr.length;i++) {
+			System.out.println((i+1) + "번째 학생 이름 >> ");
+			String name = sc.nextLine();
+			System.out.println((i+1) + "번째 학생 점수 >> ");
+			String strScore = sc.nextLine();
+			int score = Integer.parseInt(strScore);
 			
-			System.out.println("이름을 입력하세요 >> ");
-			stu[i] = sc.nextInt();
-			System.out.println("학점을 입력하세요 >> ");
-			sco[i] = sc.nextInt();
+			nameArr[i] = name;
+			scoreArr[i] = score;
+		}
+		
+		/* 점수를 학점으로 변환*/
+		for(int i=0;i<scoreArr.length;i++) {
+			char chScore;
+			int score = scoreArr[i];
+			if(score>=90)
+				chScore = 'A';
+			else if(score >= 80)
+				chScore = 'B';
+			else if(score >= 70)
+				chScore = 'C';
+			else if(score >= 60)
+				chScore = 'D';
+			else
+				chScore = 'F';
+			
+			chScoreArr[i] = chScore;
+		}
+		
+		/* 학생 이름과 학점 출력*/
+		for(int i=0;i<nameArr.length;i++) {
+			System.out.printf("%d %s:%c\n", (i+1),nameArr[i], chScoreArr[i]);
 		}
 		sc.close();
 	}
