@@ -1,1 +1,9 @@
 /.metadata/
+/.recommenders/
+.gitignore
+.settings/
+*.class
+
+# 아래는 주석처리
+# .classpath
+# .project

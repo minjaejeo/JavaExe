@@ -32,5 +32,14 @@ public class Resolve1 {
 		
 		
 	}
-
+	// 교수님 풀이
+//	public static int max(int num0, int num1) {
+//		int max = 0;
+//		if(num0>num1)
+//			_max = num0;
+//		else
+//			_max = num1;
+		
+	}
+	
 }

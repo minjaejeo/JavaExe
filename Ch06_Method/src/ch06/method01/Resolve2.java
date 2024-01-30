@@ -31,5 +31,6 @@ public class Resolve2 {
 		System.out.println(result);
 		
 	}
+	
 
 }

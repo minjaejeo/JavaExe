@@ -10,14 +10,20 @@ import java.util.Arrays;
  */
 public class Resolve3 {
 	public static void main(String[] args) {
-		int[] numArr = {10,20,30,40,50};
-		int temp = 0;
-		for (int i = numArr.length - 1; i >= 0; i--) {
-			for (int j = 0; j < 2; j++) {
-				temp = numArr[i];
-				numArr[i] = numArr[j];
-				numArr[j] = temp;
-			}
+		int[] numArr = {10,99,1,27,87};
+		/*
+		 * numArr.length/2 까지하면 앞과 뒤의 값 모두 접근
+		 * 만약 numArr.length 로 하면 다시 원래대로 돌아감
+		 */
+		for(int i=0;i<numArr.length/2;i++) {
+			int fIdx = i;			// 교체할 앞의 값 위치
+			int lIdx = numArr.length-1-i;	// 교체할 뒤의 값 위치
+			int pre = numArr[fIdx];		// 앞의 값을 추출
+			int suf = numArr[lIdx];		// 뒤의 값을 추출
+			
+			numArr[fIdx] = suf;		// 뒤의 값을 앞의 위치에 저장
+			numArr[lIdx] = pre;		// 앞의 값을 뒤의 위치에 저장
+			
 		}
 		System.out.println(Arrays.toString(numArr));
 		}
