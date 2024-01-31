@@ -7,13 +7,8 @@ public class Resolve2 {
 				,"James","Alex","Jenny","Kerry"};
 		System.out.println("이름은 모두 "+ names.length);
 		
-		for (int i=names.length-1;i>=0;i--) {
-			System.out.println(names[i] + " ");
+		for(int i=names.length-1;i>=0;i--)
+			System.out.print(names[i] + ", ");
 		System.out.println();
-			
-//		for(String name : names)
-//			System.out.println(name + ", ");
-//		System.out.println();
-		}
 	}
 }
