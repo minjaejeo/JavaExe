@@ -7,21 +7,21 @@ public class CalcMain {
 		Add add = new Add();
 		add.setValue(20, 10);
 		System.out.println("add.calculate()= " + add.calculate());
-		
+
 		Sub sub = new Sub();
-		sub.setValue(20,10);
+		sub.setValue(20, 10);
 		System.out.println("sub.calculate()= " + sub.calculate());
-		
+
 		Mul mul = new Mul();
 		mul.setValue(20, 10);
 		System.out.println("mul.calculate()= " + mul.calculate());
-		
+
 		Div div = new Div();
-		div.setValue(20,10);
+		div.setValue(20, 10);
 		System.out.println("div.calculate()= " + div.calculate());
-		
+
 		Scanner sc = new Scanner(System.in);
-		
+
 		boolean isRun = true;
 		while (isRun) {
 			Calc[] calcs = new Calc[] { add, sub, mul, div };
@@ -40,9 +40,9 @@ public class CalcMain {
 			}
 
 		}
-	
-	System.out.println("Program End~");
-	
-	sc.close();
-}
+
+		System.out.println("Program End~");
+
+		sc.close();
+	}
 }
