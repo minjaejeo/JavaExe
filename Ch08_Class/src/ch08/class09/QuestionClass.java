@@ -2,8 +2,14 @@ package ch08.class09;
 
 import java.util.Scanner;
 
-import ch08.class08.FruitBuyer;
-import ch08.class08.FruitSeller;
+import ch08.class09.answer01.FruitBuyer;
+import ch08.class09.answer01.FruitSeller;
+import ch08.class09.answer03.PearBuyer;
+import ch08.class09.answer03.PearSeller;
+import ch08.class09.answer04.Song;
+import ch08.class09.answer05.Rectangle;
+
+
 
 
 /*
@@ -110,7 +116,7 @@ public static void answer1(Scanner sc) {
 	seller.showSaleResult();
 	buyer.showBuyResult();
 	
-	seller.saleApple(2000);
+	seller.saleApple(buyer, 2000);
 	
 	seller.showSaleResult();
 	buyer.showBuyResult();
@@ -131,23 +137,50 @@ public static void answer2(Scanner sc) {
 
 // 3번 문제에 대한 풀이
 public static void answer3(Scanner sc) {
-	Resolve03 buyer = new Resolve03(5000);
+	PearSeller seller = new PearSeller(20);
+	PearBuyer buyer = new PearBuyer(10000);
 	
+	seller.showSaleResult();
 	buyer.showBuyResult();
-
+	
+	buyer.buyPear(seller, 5000);
+	
+	seller.showSaleResult();
+	buyer.showBuyResult();
 }
 
 // 4번 문제에 대한 풀이
 public static void answer4(Scanner sc) {
+	Song song = new Song();
+	song.setSongInfo("Dancing Queen", "ABBA","Arrival", "Benny Andersson", 1976, 2);
+	song.show();
 
-	
-	Resolve04 Song = new Resolve04(sc,"ABBA", "Dancing Queen");
 
-	Song.Show();
 }
 
 // 5번 문제에 대한 풀이
 public static void answer5(Scanner sc) {
+	Rectangle rc0 = new Rectangle();
+	rc0.set(10, 10, 30, 30);
+	
+	Rectangle rc1 = new Rectangle();
+	rc1.set(10, 10, 30, 30);
+	
+	Rectangle rc2 = new Rectangle();
+	rc2.set(20, 20, 50, 50);
+	
+	rc0.show();
+	rc1.show();
+	rc2.show();
+	
+	if(rc0.equals(rc1))
+		System.out.println("rc0과 rc1은 같습니다.");
+	else
+		System.out.println("rc0과 rc1은 다릅니다.");
+	if(rc0.equals(rc2))
+		System.out.println("rc0과 rc2은 같습니다.");
+	else
+		System.out.println("rc0과 rc2은 다릅니다.");
 
 }
 
@@ -188,7 +221,9 @@ public static void main(String[] args) {
 		default:
 			System.out.println("번호를 잘 못 입력했습니다.");
 			break;
-		}			
+		}
+		sc.nextLine();
+		sc.nextLine();
 	}
 
 	System.out.println("Program End~");

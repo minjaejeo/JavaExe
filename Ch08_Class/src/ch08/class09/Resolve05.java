@@ -13,20 +13,9 @@ import java.util.Scanner;
  */
 
 public class Resolve05 {
-	private int[] x1 = new int[2];
-	private int[] y1 = new int[2];
-	private int[] x2 = new int[2];
-	private int[] y2 = new int[2];
-	
-	private Scanner sc;
-	
-	public void set(int x1, int y1, int x2, int y2) {
-		System.out.println("두점의 좌표를 입력하세요 >> ");
-		for (i = 0; i < 2; i++) {
-			x1[i] = sc.nextInt();
-		}
+
 		
 		
 	}
 
-}
+
