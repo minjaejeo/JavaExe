@@ -1,6 +1,5 @@
-package ch09.abstract10;
+package ch09.abstract11;
 
-import java.util.Iterator;
 import java.util.Scanner;
 
 public class EmployeeManager {
@@ -16,7 +15,10 @@ public class EmployeeManager {
 		System.out.println("2. 임시직");
 		System.out.println("3. 일용직");
 		System.out.println("4. 전체정보보기");
-		System.out.println("5. 종료");
+		System.out.println("5. 정규직 보기");
+		System.out.println("6. 임시적 보기");
+		System.out.println("7. 일용직 보기");
+		System.out.println("8. 종료");
 		System.out.println("번호 입력 >> ");
 		int sel = sc.nextInt();
 		return sel;
@@ -31,9 +33,9 @@ public class EmployeeManager {
 		int yearSalary = sc.nextInt();
 		System.out.println("보너스 >> ");
 		int bonus = sc.nextInt();
-		RegularEmployee emp = 
+		RegularEmployee regEmp = 
 				new RegularEmployee(empno, name, yearSalary, bonus);
-		return emp;
+		return regEmp;
 	}
 	private TempEmployee createTempEmployee() {
 		System.out.print("사번 >> ");
@@ -64,6 +66,7 @@ public class EmployeeManager {
 	private boolean saveEmployee(Employee emp) {
 		boolean isSave = true;
 		
+		
 		if(this.numOfEmp<EMP_NUM) {
 			this.empArr[this.numOfEmp] = emp;
 			this.numOfEmp++;
@@ -81,15 +84,21 @@ public class EmployeeManager {
 		}
 		
 	}
+	private void viewRegEmployeeInfo() {
+		for(int i = 0; i<this.numOfEmp;i++) {
+			this.regEmpArr[i].showEmployeeInfo();
+		}
+	}
 	public void run() {
 		boolean isRun = true;
 		while(isRun) {
 			int selNum = viewMenu();
 			Employee emp = null;
+			RegularEmployee regEmp = null;
 			
 			switch(selNum) {
 			case EmpMenu.REG_EMP:
-				emp = createRegularEmployee();
+				regEmp = createRegularEmployee();
 				break;
 			case EmpMenu.TEMP_EMP:
 				emp = createTempEmployee();
@@ -100,6 +109,13 @@ public class EmployeeManager {
 			case EmpMenu.ALL_INFO:
 				emp = null;
 				viewAllEmployeeInfo();
+				break;
+			case EmpMenu.REG_EMP_INFO:
+				viewRegularEmployeeInfo();
+				break;
+			case EmpMenu.TEMP_EMP_INFO:
+				break;
+			case EmpMenu.PART_EMP_INFO:
 				break;
 			case EmpMenu.EXIT:
 				emp = null;
