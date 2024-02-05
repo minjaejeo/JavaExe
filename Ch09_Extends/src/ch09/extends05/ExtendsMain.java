@@ -7,6 +7,8 @@ package ch09.extends05;
  * 3) default : 접근 제한자를 쓰지 않았을 때, 같은 패키지에 있는 클래스만 접근 가능
  * 4) private : 클래스 내에서만 나만 가능, 자식도 접근 불가능
  */
+
+
 public class ExtendsMain {
 	public static void main(String[] args) {
 		Child child = new Child(7, 99999L, 72);

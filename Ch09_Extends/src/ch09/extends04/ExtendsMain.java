@@ -7,7 +7,7 @@ package ch09.extends04;
  */
 public class ExtendsMain {
 	public static void main(String[] args) {
-		Child child = new Child(7, 99999L, 72);
+		Child child = new Child(7, 9999L, 72);
 		child.handsome();
 		child.wealth();
 		child.play();

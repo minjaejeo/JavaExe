@@ -5,14 +5,13 @@ public class Gun {
 	
 	public Gun(int bullet) {
 		this.bullet = bullet;
-		
 	}
 	public void shot() {
-		if(bullet > 0) {
+		if(bullet>0) {
 			System.out.println("BBANG!");
 			bullet--;
 		}else {
-			System.out.println("Chulkuk...");
+			System.out.println("Chulkuk");
 		}
 	}
 

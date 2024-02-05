@@ -1,22 +1,21 @@
 package ch09.iskindof06;
 
-public class NursePolice extends Police {
+public class NursePolice extends Police	{
+	private int thermometer;	// 체온계 개수
 	
-	private int thermometers; 	// 체온계 개수
-	
-	public NursePolice(int bullet, int handCuffs,
-			int thermometer	) {
+	public NursePolice(int bullet, int handCuffs, int thermometer) {
 		super(bullet, handCuffs);
-		this.thermometers  = thermometers;
-			
+		this.thermometer = thermometer;
+		
 	}
 	public void calcThermometer() {
-		if(thermometers > 0) {
+		if(thermometer>0) {
 			System.out.println("Check 36.5 Temp");
-			thermometers--;
+			thermometer --;
 		}else {
 			System.out.println("No Check Temp");
 		}
 	}
+	
 
 }

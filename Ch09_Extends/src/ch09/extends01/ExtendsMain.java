@@ -6,6 +6,8 @@ public class ExtendsMain {
 		child.handsome();
 		child.wealth();
 		child.play();
+		
 	}
+
 
 }

@@ -1,7 +1,7 @@
 package ch09.resolve07.answer03;
 
 public class ArrayUtility {
-	public static double[] intToDouble(int[] source) {
+	public static double[] IntToDuoble(int[] source) {
 		int len = source.length;
 		double[] dest = new double[len];
 		for(int i=0;i<len;i++) {
@@ -9,7 +9,7 @@ public class ArrayUtility {
 		}
 		return dest;
 	}
-	public static int[] intToDouble(double[] source) {
+	public static int[] DoubleToInt(double[] source) {
 		int len = source.length;
 		int[] dest = new int[len];
 		for(int i=0;i<len;i++) {
@@ -17,4 +17,5 @@ public class ArrayUtility {
 		}
 		return dest;
 	}
+
 }
