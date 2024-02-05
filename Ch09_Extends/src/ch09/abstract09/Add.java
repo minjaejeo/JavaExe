@@ -1,9 +1,10 @@
 package ch09.abstract09;
 
-public class Add extends Calc{
+public class Add extends Calc {
 
-	@Override	// 
+	@Override
 	public int calculate() {
 		return a+b;
 	}
+
 }

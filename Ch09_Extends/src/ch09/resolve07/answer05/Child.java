@@ -19,8 +19,10 @@ public class Child {
 	}
 	public void get(Child other, int cnt) {
 		other.sub(cnt);
-		add(cnt);		
+		add(cnt);
 	}
+	
+	
 	private void add(int cnt) {
 		this.ballCnt += cnt;
 	}
@@ -30,6 +32,4 @@ public class Child {
 	public int getBallCnt() {
 		return ballCnt;
 	}
-	
-
 }

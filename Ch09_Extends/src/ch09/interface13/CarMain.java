@@ -39,6 +39,10 @@ public class CarMain {
 		int[] score = new int[carArr.length];
 		
 		for(int i=0;i<carArr.length;i++) {
+			/*
+			 * DI(Dependency Injection): 의존성 주입
+			 * IoC(Inversion of Control): 역제어
+			 */
 			carTester.setCar(carArr[i]);
 			
 			score[i] += carTester.onOffTest();

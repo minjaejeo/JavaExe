@@ -1,7 +1,7 @@
 package ch09.resolve07.answer04;
 
 public class ArrayUtility2 {
-	public static int[] concat(int[] s1, int[] s2	) {
+	public static int[] concat(int[] s1, int[] s2) {
 		int len = s1.length + s2.length;
 		int[] intArr = new int[len];
 		
@@ -19,39 +19,33 @@ public class ArrayUtility2 {
 	public static int[] remove(int[] s1, int[] s2) {
 		// 일단 s1과 s2간의 겹치는 데이터가 없다고 가정하고 최대 s1의 길이만큼 배열을 할당
 		int[] intArr = new int[s1.length];
-		boolean isExist = false;		// s1과 i위치 값이 s2에 존재하는지 판다
-		int idx = 0;					// s1의 i 위치 값이 s2에 존재하지 않을 때 intArr에 저장할 위치
-										// intArr에 중복되지 않아서 저장한 배열의 길이
-		
-		// s1의 값을 1개씩 s2있는지 확인하기 위해서
-		for(int i=0;i<s1.length;i++) {
-			for(int j=0;j<s2.length;j++) {
+		boolean isExist = false;	// s1의 i위치 값이 s2에 존재하는지 판단
+		int idx = 0;	// s1의 i위치 값이 s2에 존재하지 않을 때 intArr에 저장할 위치
+						// intArr에 중복되지 않아서 저장한 배열의 길이
+		// s1의 값을 1개씩 s2에 있는 지 확인하기 위해서
+		for(int i = 0;i<s1.length;i++) {
+			for(int j = 0; j<s2.length;j++) {
 				// s1의 i위치값이 s2전체 중에 존재하는 지 판단
-				if(s1[i] == s2[j]) {
-					// 존재한다면 for(int j ~ )를 탈출
+				if(s1[i]==s2[j]) {
+					// 존재한다면 for(int j ~)를 탈출
 					isExist = true;
 					break;
 				}
 			}
-			
 			// 찾지 못했으면 isExist는 false이므로 새로운 intArr의 idx위치에 저장
-			if(isExist==false) {
+			if(isExist == false) {
 				intArr[idx] = s1[i];
 				idx++;
 			}
-			// 다시 s1의 다음 위치 i를 검사해야 하므로 isExist를 false로 정해준다.
+			// 다시 s1의 다음 위치 i를 검사해야하므로 isExist를 false로 정해준다.
 			isExist = false;
 		}
-		
-		/*
-		 * 중복은 제거되었지만 불필요한 배열의 공간이 남을 수 있으므로
-		 * 새로 할당
-		 */
+		// 중복은 제거되었지만 불필요한 배열의 공간이 남을 수 있으므로 새로 할당
 		int[] dest = new int[idx];
 		for(int i=0;i<idx;i++) {
 			dest[i] = intArr[i];
 		}
 		return dest;
 	}
-
+	
 }

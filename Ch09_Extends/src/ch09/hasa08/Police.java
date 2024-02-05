@@ -1,6 +1,6 @@
 package ch09.hasa08;
 
-public class Police {
+public class Police	{
 	
 	private int clothes;
 	
@@ -10,12 +10,11 @@ public class Police {
 	}
 	public void putOnClothes() {
 		if(clothes > 0) {
-			System.out.println("Smile!");
+			System.out.println("Smile~");
 			clothes--;
-		}else { 
+		}else {
 			System.out.println("Shame...");
 		}
 	}
-	
 
 }
