@@ -5,6 +5,7 @@ public class StarMain {
 		for(StarUnit unit : units) {
 			unit.walk();
 		}
+		
 	}
 	public static void attack(StarUnit[] units) {
 		for(StarUnit unit : units) {
@@ -16,19 +17,18 @@ public class StarMain {
 			unit.die();
 		}
 	}
-	
-	
 	public static void main(String[] args) {
 		StarUnit[] units = new StarUnit[] {
-				new Marine(),
 				new Scv(),
+				new Marine(),
 				new Hydra(),
 				new Zealot()
+				
 		};
-		
 		walk(units);
 		attack(units);
 		die(units);
+		
 	}
 
 }

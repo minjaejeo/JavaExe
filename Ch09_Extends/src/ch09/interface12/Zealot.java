@@ -1,6 +1,5 @@
 package ch09.interface12;
 
-
 // 확장팩의 새로운 캐릭터
 public class Zealot implements StarUnit {
 
@@ -21,5 +20,6 @@ public class Zealot implements StarUnit {
 		System.out.println("으윽**");
 		
 	}
+	
 
 }
