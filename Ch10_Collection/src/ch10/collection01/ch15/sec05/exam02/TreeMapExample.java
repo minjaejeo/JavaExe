@@ -1,5 +1,6 @@
 package ch10.collection01.ch15.sec05.exam02;
 
+import java.util.Map.Entry;
 import java.util.NavigableMap;
 import java.util.Set;
 import java.util.TreeMap;
@@ -20,7 +21,7 @@ public class TreeMapExample {
 		treeMap.put("cherry", 30);
 		
 		// 정렬된 엔트리를 하나씩 가져오기
-		Set<Entry<String, Intger>> entrySet = treeMap.entrySet();
+		Set<Entry<String, Integer>> entrySet = treeMap.entrySet();
 		for(Entry<String, Integer> entry : entrySet) {
 			System.out.println(entry.getKey() + "-" + entry.getValue());
 		}
