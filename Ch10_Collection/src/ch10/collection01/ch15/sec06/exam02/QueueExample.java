@@ -20,8 +20,8 @@ public class QueueExample {
 			case "sendMail":
 				System.out.println(message.to + "님에게 메일을 보냅니다.");
 				break;
-			case "sendSNS":
-				System.out.println(message.to + "님에게 SNS를 보냅니다.");
+			case "sendSMS":
+				System.out.println(message.to + "님에게 SMS를 보냅니다.");
 				break;
 			case "sendKaKaotalk":
 				System.out.println(message.to + "님에게 카카오톡을 보냅니다.");
