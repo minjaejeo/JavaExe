@@ -3,32 +3,28 @@ package ch09.resolve14.question01;
 public class InkJetPrinter extends Printer {
 	
 	protected double inkRemainders;
-	
 
-	public InkJetPrinter(String modelName, String menufacturer, P_INTERFACE pInterface, int printCount,
+	public InkJetPrinter(String modelName, String manufacture, P_INTERFACE pInterface, int printCount,
 			int paperRemains, double inkRemainders) {
-		super(modelName, menufacturer, pInterface, printCount, paperRemains);
+		super(modelName, manufacture, pInterface, printCount, paperRemains);
 		this.inkRemainders = inkRemainders;
 	}
 
-
 	@Override
 	public void print() {
-		super.print();		// 종이 1장 사용
+		super.print();	// 종이 1장 사용
 		this.printCount++;
 		this.inkRemainders -= 0.1;
 		System.out.println("잉크가 잘 분사되어 출력된다.");
 		System.out.println("품질이 양호하다.");
 	}
 
-
 	@Override
 	public String toString() {
-		return "InkJetPrinter [inkRemainders=" + inkRemainders + ", modelName=" + modelName + ", menufacturer="
-				+ menufacturer + ", pInterface=" + pInterface + ", printCount=" + printCount + ", paperRemains="
+		return "InkJetPrinter [inkRemainders=" + inkRemainders + ", modelName=" + modelName + ", manufacture="
+				+ manufacture + ", pInterface=" + pInterface + ", printCount=" + printCount + ", paperRemains="
 				+ paperRemains + "]";
 	}
-
 	
 
 }

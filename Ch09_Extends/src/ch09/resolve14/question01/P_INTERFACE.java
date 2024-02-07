@@ -1,6 +1,7 @@
 package ch09.resolve14.question01;
 
 public enum P_INTERFACE {
-	USB,
+	USE,
 	PARALLEL_PORT
+
 }

@@ -36,7 +36,7 @@ public class Answer1 implements IQuestionAnswer {
 		sc.nextLine();		// Enter치기 전까지 멈춰있음
 		
 		InkJetPrinter ijp = new InkJetPrinter("HP-264", "HP",
-				P_INTERFACE.USB, 20, 100, 50);
+				P_INTERFACE.USE, 20, 100, 50);
 		ijp.print();
 		ijp.print();
 		ijp.print();
