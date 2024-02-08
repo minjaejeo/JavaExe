@@ -10,11 +10,11 @@ public class Answer1 implements IQuestionAnswer {
 
 	@Override
 	public void question() {
-
 		String question = "1. 다음 상속구조를 설계하세요\r\n"
 				+ "모든 프린터는 모델명, 제조사, 인터페이스 종류(USB, paraller port), 인쇄매수,\r\n"
 				+ "인쇄 종이 잔량을 나타내는 정보를 가진다\r\n"
 				+ "print()메서드를 갖는다.\r\n"
+				+ "프린터의 자식 클래스로 잉크젯프린터와 레이저프린터가 있다.\r\n"
 				+ "잉크젯프린터는 잉크 잔량이라는 추가 정보를 가진다\r\n"
 				+ "레이저프린터는 토너 잔량이라는 추가 정보를 가진다\r\n"
 				+ "print()메서드는 각 프린터 타입에 맞게 구현한다\r\n"
@@ -26,36 +26,40 @@ public class Answer1 implements IQuestionAnswer {
 				+ "\r\n"
 				+ "                  프린터\r\n"
 				+ "\r\n"
-				+ "잉크젯프린터             레이저프린터\r\n\r\n"
-				+ "";
+				+ "잉크젯프린터             레이저프린터\r\n\r\n";
 		System.out.println(question);
+		
 	}
+//	String modelName, String manufacture, P_INTERFACE pInterface, int printCount,
+//	int paperRemains, double inkRemainders
 
 	@Override
 	public void answer(Scanner sc) {
-		sc.nextLine();		// Enter치기 전까지 멈춰있음
+		sc.nextLine();		// Enter 치기 전까지 멈취있음
 		
-		InkJetPrinter ijp = new InkJetPrinter("HP-264", "HP",
-				P_INTERFACE.USE, 20, 100, 50);
+		InkJetPrinter ijp = 
+				new InkJetPrinter("HP=264", "HP", P_INTERFACE.USE,
+						 20, 100, 50);
 		ijp.print();
 		ijp.print();
 		ijp.print();
 		System.out.println(ijp);
 		
-		LaserPrinter lp = new LaserPrinter("Samsung-111", "Samsung",
-				P_INTERFACE.PARALLEL_PORT, 20, 100, 100);
-		ijp.print();
-		ijp.print();
-		ijp.print();
+		LaserPrinter lp = 
+				new LaserPrinter ("Samsung-111" , "Samsung", 
+						P_INTERFACE.PARALLEL_PORT, 20, 100, 100);
+		lp.print();
+		lp.print();
+		lp.print();
 		System.out.println(lp);
 		
-		sc.nextLine();		// Enter치기 전까지 멈춰있음
-
+		
+		sc.nextLine();		// Enter 치기 전까지 멈춰있음
+		
 	}
 
 	@Override
 	public boolean isRun() {
-		
 		return true;
 	}
 

@@ -2,15 +2,10 @@ package ch09.resolve14;
 
 import java.util.Scanner;
 
-import ch09.resolve14.question03.BaseBallMenu;
-import ch09.resolve14.question03.DecisionBall;
-import ch09.resolve14.question03.GeneratorThreeNum;
-
 public class Answer3 implements IQuestionAnswer {
 
 	@Override
 	public void question() {
-
 		String question = "3. 삼진아웃게임을 만듭니다\r\n"
 				+ "두 사람중에 한 사람이 0~9까지 3개의 숫자중 중복없이 임의의 숫자를 선택합니다\r\n"
 				+ "예를 들어 3 1 9를 선택했다면\r\n"
@@ -53,38 +48,16 @@ public class Answer3 implements IQuestionAnswer {
 				+ "==> 삼진아웃!!\r\n"
 				+ "\r\n"
 				+ "다시하시겠습니까(Y/N)?\r\n\r\n";
-		
 		System.out.println(question);
+		
 	}
 
 	@Override
 	public void answer(Scanner sc) {
-		sc.nextLine();		// Enter치기 전까지 멈춰있음
-
-		System.out.println("**** 삼진아웃 게임을 시작합니다 ****");
+		sc.nextLine();	// Enter치기 전까지 멈춰 있음
 		
-		// 컴퓨터의 중복되지 않은 3개의 숫자를 생성
-		int[] comArr = GeneratorThreeNum.getRandomNum();
 		
-		boolean isRun = true;
-		while(isRun) {
-			// 사용자의 3개 숫자 입력
-			int[] userArr = new int[3];
-			BaseBallMenu.printOrder(1);
-			userArr[0] = BaseBallMenu.getUserNum();
-			BaseBallMenu.printOrder(2);
-			userArr[1] = BaseBallMenu.getUserNum();
-			BaseBallMenu.printOrder(3);
-			userArr[2] = BaseBallMenu.getUserNum();
-			
-			//결과 판단
-			isRun = DecisionBall.decisionBall(comArr, userArr);
-			
-		}
-		System.out.println("정확하게 맞추셨습니다~ 축하합니다!");
-		
-		sc.nextLine();		// Enter치기 전까지 멈춰있음
-
+		sc.nextLine();	// Enter치기 전까지 멈춰 있음
 	}
 
 	@Override
