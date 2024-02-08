@@ -9,6 +9,7 @@ public class ThrowsExample1 {
 			System.out.println("예외 처리: " + e.toString());
 		}
 	}
+	// throws 는 부모쪽으로 모아서 던져주기 위해서 사용한다.
 	public static void findClass() throws ClassNotFoundException{
 		Class.forName("java.lang.String2");
 	}
