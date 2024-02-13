@@ -13,10 +13,10 @@ public class StackExample {
 		coinBox.push(new Coin(500));
 		coinBox.push(new Coin(10));
 		
-		// 동전을 하나씩 꺼내기
+		//동전을 하나씩 꺼내기
 		while(!coinBox.isEmpty()) {
 			Coin coin = coinBox.pop();
-			System.out.println("꺼내온 동전 : " + coin.getValue() + "원");
+			System.out.println("꺼내온 동전: " + coin.getValue() + "원");
 		}
 	}
 

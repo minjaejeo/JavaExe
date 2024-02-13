@@ -1,0 +1,26 @@
+package ch15.thread01.ch14.sec07.exam01;
+
+public class PrintThread extends Thread {
+	private boolean stop;
+	
+	//외부에서 stop 필드 값을 변경할 수 있도록 Setter 선언
+	public void setStop(boolean stop) {
+		this.stop = stop;
+	}
+	/*
+	 * [스레드를 종료하는 1번째 방법]
+	 * 계속 동작해야 하는 스레드에서 while 문을 종종 사용한다.
+	 * 이 스레드를 종료하기 위해서는 아래처럼 boolean stop 을 사용하면
+	 * stop 이 true 일때 while 문은 더 이상 반복되지 않고 종료되게 된다.
+	 */
+	@Override
+	public void run() {
+		// stop 필드 값에 따라 반복 여부 결정
+		while(!stop) {
+			System.out.println("샐행 중");
+		}
+		System.out.println("리소스 정리");
+		System.out.println("실행 종료");
+	}
+
+}
