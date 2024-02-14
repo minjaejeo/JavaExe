@@ -1,6 +1,6 @@
 package ch12.object01.sec03.exam01;
 
-// java 의 모든 클래스의 최상위 부모는 Object 클래스가 된다.
+//Java의 모든 클래스의 최상위 부모는 Object 클래스가 된다.
 public class Member {
 	public String id;
 	

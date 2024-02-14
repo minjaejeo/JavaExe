@@ -11,7 +11,7 @@ public class SmartPhone {
 	
 	@Override
 	public String toString() {
-		return company + ", "+ os;
+		return company + ", " + os;
 	}
 
 }

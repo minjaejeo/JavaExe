@@ -3,7 +3,7 @@ package ch13.sec02.exam03;
 public class GenericExample {
 	public static void main(String[] args) {
 		/*
-		 * Box<String> box1 = new Box<>();	원래는 이렇게 해야하는데 
+		 * Box<String> box1 = new Box<>();원래 이렇게 해야하는데
 		 * Box<T>에서 T를 지정하지 않으면 자동으로 Object로 결정된다.
 		 */
 		Box box1 = new Box();

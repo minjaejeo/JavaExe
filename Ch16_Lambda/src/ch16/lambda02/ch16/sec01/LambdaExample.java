@@ -6,7 +6,7 @@ public class LambdaExample {
 			int result = x + y;
 			System.out.println("result: " + result);
 		});
-		action((x,y) -> {
+		action((x, y) -> {
 			int result = x - y;
 			System.out.println("result: " + result);
 		});

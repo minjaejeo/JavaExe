@@ -1,7 +1,7 @@
 package ch16.lambda01.ch09.sec07.exam02;
 
 public class Home {
-	//필드에 익명 구현 객체 대입
+	//필드에 익명 구현 객체 대입 (Class이름은 컴파일러가 알아서 정해준다.)
 	private RemoteControl rc = new RemoteControl()	{
 		@Override
 		public void turnOn() {

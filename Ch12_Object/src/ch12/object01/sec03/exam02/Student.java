@@ -8,10 +8,12 @@ public class Student {
 		this.no = no;
 		this.name = name;
 	}
-	
-	public int getNo() {return no;}
-	public String getName() {return name;}
-	
+	public int getNo() {
+		return no;
+	}
+	public String getName() {
+		return name;
+	}
 	@Override
 	public int hashCode() {
 		int hashCode = no + name.hashCode();

@@ -1,18 +1,18 @@
 package ch13.sec03.exam01;
+
 /*
  * T는 입력되는 DataType을 가리키는 대명사
  */
 
 public class Box<T> {
-	// 필드
+	//필드
 	private T t;
 	
-	//Getter 메소드
+	//Getter 메서드
 	public T get() {
 		return t;
 	}
-	
-	//Setter 메소드
+	//Setter 메서드
 	public void set(T t) {
 		this.t = t;
 	}

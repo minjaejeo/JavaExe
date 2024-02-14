@@ -6,9 +6,10 @@ public class Car {
 	
 	// 필드에 익명 자식 객체 대입
 	private Tire tire2  = new Tire() {
+		@Override
 		public void roll() {
 			System.out.println("익명 자식 Tire 객체 1이 굴러갑니다.");
-		}
+		}//자식 클래스를 만들어도 되지만 이렇게 하는게 간편하다.
 	};
 	//메소드(필드 이용)
 	public void run1() {
