@@ -7,11 +7,10 @@ public class InterruptExample {
 		
 		try {
 			Thread.sleep(1000);
-			
-		}catch (InterruptedException e) {
+		}catch(InterruptedException e) {
 			
 		}
-		//thread의 run()에 InterruptedException 을 throw한다.
+		// thread의 run()에 InterruptedException를 throw한다.
 		thread.interrupt();//interrupt() 메소드 호출
 	}
 

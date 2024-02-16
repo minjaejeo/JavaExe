@@ -1,9 +1,10 @@
 package ch15.thread01.ch14.sec08;
 
-public class AutoSaveThread extends Thread{
+public class AutoSaveThread extends Thread {
 	public void save() {
 		System.out.println("작업 내용을 저장함.");
 	}
+	
 	@Override
 	public void run() {
 		while(true) {
@@ -15,4 +16,5 @@ public class AutoSaveThread extends Thread{
 			save();
 		}
 	}
+
 }
