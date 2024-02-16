@@ -11,6 +11,8 @@ import java.net.InetAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.Hashtable;
+import java.util.Iterator;
+import java.util.Set;
 
 import org.json.JSONObject;
 
@@ -79,11 +81,10 @@ public class JsonChatServer {
  * 	[요청]
  * 	cmd:ALLCHAT
  * 	id:{id값}
- * 	youid:all
  * 	msg:{문자메시지}
  * 
  * 	[응답]
- * 	cmd:ID
+ * 	cmd:ALLCHAT
  * 	ack:ok(성공), fail(실패)
  * 
  * 	[전송]
@@ -98,11 +99,11 @@ public class JsonChatServer {
  * 	msg:{문자메시지}
  * 
  * 	[응답]
- * 	cmd:ID
+ * 	cmd:ONECHAT
  * 	ack:ok(성공), fail(실패)
  * 
  * 	[전송]
- * 	cmd:UNIQCHAT
+ * 	cmd:UNICHAT
  * 	id:{id값}
  * 	msg:{문자메시지}
  */
@@ -139,6 +140,7 @@ class WorkerThread extends Thread {
 				 * 문자열 -> JSONObject변환 -> cmd를 해석해서 어떤 명령인지?
 				 */
 				JSONObject packetObj = new JSONObject();
+				// 명령(cmd)
 				processPacket(packetObj);
 			}
 		} catch (Exception e) {
@@ -148,13 +150,14 @@ class WorkerThread extends Thread {
 	
 	private void processPacket(JSONObject packetObj) throws IOException {
 		JSONObject ackObj = new JSONObject();
+		// 어떤 종류의 패킷
 		String cmd = packetObj.getString("cmd");
 		if(cmd.equals("ID")) {
 			//클라이언트 요청 처리
 			String id = packetObj.getString("id");
 			ht.put(id, this.socket);	// 해시테이블에 id와 socket을 등록
 			// 응답
-			ackObj.put("cmd", id);
+			ackObj.put("cmd", "ID");
 			ackObj.put("ack", "ok");
 			//JSON Obj -> 문자열
 			String ack = ackObj.toString();
@@ -185,12 +188,88 @@ class WorkerThread extends Thread {
 			pw.flush();
 			
 		}else if(cmd.equals("ALLCHAT")) {
+			String id = packetObj.getString("id");
+			String msg = packetObj.getString("msg");
 			
+			/* 클라이언트 응답 패킷*/
+			// 응답
+			ackObj.put("cmd", "ALLCHAT");
+			ackObj.put("ack","ok");
+			//JSON Obj -> 문자열
+			String ack = ackObj.toString();
+			// 클라이언트한테 전송
+			OutputStream out = this.socket.getOutputStream();
+			PrintWriter pw = new PrintWriter(new OutputStreamWriter(out));
+			pw.println(ack);
+			pw.flush();
+			
+			// 전체 전송 패킷
+			JSONObject broadObj = new JSONObject();
+			ackObj.put("cmd", "BROADCHAT");
+			ackObj.put("id", id);
+			ackObj.put("msg", msg);
+			String strBroad = broadObj.toString();
+			// 전체 전송
+			broadcast(strBroad);
 		}else if(cmd.equals("ONECHAT")) {
+			String id = packetObj.getString("id");
+			String yourid = packetObj.getString("yourid");
+			String msg = packetObj.getString("msg");
 			
+			/* 클라이언트 응답 패킷*/
+			// 응답
+			ackObj.put("cmd", "ONECHAT");
+			ackObj.put("ack","ok");
+			//JSON Obj -> 문자열
+			String ack = ackObj.toString();
+			// 클라이언트한테 전송
+			OutputStream out = this.socket.getOutputStream();
+			PrintWriter pw = new PrintWriter(new OutputStreamWriter(out));
+			pw.println(ack);
+			pw.flush();
+			
+			// 특정 yourid 사용 클라이언트에 전송 패킷
+			JSONObject uniObj = new JSONObject();
+			uniObj.put("cmd", "UNICHAT");
+			uniObj.put("id", id);
+			uniObj.put("msg", msg);
+			String strUni = uniObj.toString();
+			// 전체 전송
+			unicast(strUni, yourid);
 		}
 		
 		
+	}
+	
+	//yourId에 해당하는 접속자를 찾아서 패킷을 전송
+	private void unicast(String packet, String yourid) throws IOException {
+		Socket sock = (Socket)ht.get(yourid);
+		
+		OutputStream out = sock.getOutputStream();
+		PrintWriter pw = new PrintWriter(new OutputStreamWriter(out));
+		pw.println(packet);
+		pw.flush();
+	}
+	
+	
+	// 접속 클라이언트를 제외한 모든 접속자한테 패킷을 전송
+	private void broadcast(String packet) throws IOException {
+		// 현재 Hashtable에 등록된 모든 사용자의 id와 Socket을 가져온다.
+		Set<String> idSet = ht.keySet();
+		Iterator<String> idIter = idSet.iterator();
+		while(idIter.hasNext()) {
+			String id = idIter.next();
+			Socket sock = (Socket) ht.get(id);
+			
+			// 클라이언트한테는 보낼 필요가 없으므로
+			if(sock==this.socket)
+				continue;
+			
+			OutputStream out = sock.getOutputStream();
+			PrintWriter pw = new PrintWriter(new OutputStreamWriter(out));
+			pw.println(packet);
+			pw.flush();
+		}
 	}
 	private double arith(String op, double val1, double val2) {
 		double result=0.;
