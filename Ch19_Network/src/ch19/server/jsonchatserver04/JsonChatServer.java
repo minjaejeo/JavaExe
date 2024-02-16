@@ -157,7 +157,7 @@ class WorkerThread extends Thread {
 			ackObj.put("cmd", id);
 			ackObj.put("ack", "ok");
 			//JSON Obj -> 문자열
-			String ack = ackObj.toString;
+			String ack = ackObj.toString();
 			// 클라이언트한테 전송
 			OutputStream out = this.socket.getOutputStream();
 			PrintWriter pw = new PrintWriter(new OutputStreamWriter(out));
@@ -177,7 +177,7 @@ class WorkerThread extends Thread {
 			ackObj.put("cmd", "ARITH");
 			ackObj.put("ack", Double.toString(result));
 			//JSON Obj -> 문자열
-			String ack = ackObj.toString;
+			String ack = ackObj.toString();
 			// 클라이언트한테 전송
 			OutputStream out = this.socket.getOutputStream();
 			PrintWriter pw = new PrintWriter(new OutputStreamWriter(out));
