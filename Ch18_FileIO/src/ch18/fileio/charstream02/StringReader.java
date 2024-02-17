@@ -11,11 +11,12 @@ public class StringReader {
 		BufferedReader in = new BufferedReader(rd);
 		String str;
 		while(true) {
-			str = in.readLine();	// 한줄씩(즉, 개행문자 만날때까지)
+			str = in.readLine();//한줄씩(즉, 개행문자 만날때까지)
 			if(str==null)
 				break;
 			System.out.println(str);
 		}
 		in.close();
 	}
+
 }
