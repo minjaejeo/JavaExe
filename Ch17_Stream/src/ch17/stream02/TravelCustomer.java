@@ -1,10 +1,9 @@
 package ch17.stream02;
 
 public class TravelCustomer {
-	private String name;	// 이름
-	private int age;		// 나이
-	private int price;		// 비용
-	
+	private String name;//이름
+	private int age;	//나이
+	private int price;	//비용
 	
 	public TravelCustomer(String name, int age, int price) {
 		this.name = name;
@@ -12,21 +11,17 @@ public class TravelCustomer {
 		this.price = price;
 	}
 
-
 	public String getName() {
 		return name;
 	}
-
 
 	public int getAge() {
 		return age;
 	}
 
-
 	public int getPrice() {
 		return price;
 	}
-
 
 	@Override
 	public String toString() {
@@ -34,7 +29,5 @@ public class TravelCustomer {
 	}
 	
 	
-	
-	
-	
+
 }
