@@ -1,7 +1,7 @@
 package ch15.thread02.syncerror05;
 
 class Value{
-	private int num=0;
+	private int num = 0;
 	public int getNum() {
 		return num;
 	}
@@ -17,12 +17,14 @@ class IncThread extends Thread{
 	}
 	@Override
 	public void run() {
-		for(int i=0;i<100000;i++)
+		for(int i=0;i<1000;i++) {
 			val.Increment();
+			System.out.println(val.getNum());
+		}
 	}
 }
 
-//스레드가 1개일 때 값이 정상적인 것을 확인함
+//스레드가 1개 일 때 값이 정상적인 것을 확인함
 public class ThreadSyncError {
 	public static void main(String[] args) {
 		Value val = new Value();
@@ -31,7 +33,7 @@ public class ThreadSyncError {
 		
 		try {
 			it1.join();
-		} catch (InterruptedException e) {
+		}catch(InterruptedException e) {
 			e.printStackTrace();
 		}
 		System.out.println(val.getNum());

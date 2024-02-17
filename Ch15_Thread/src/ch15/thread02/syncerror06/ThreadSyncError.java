@@ -1,7 +1,7 @@
 package ch15.thread02.syncerror06;
 
 class Value{
-	private int num=0;
+	private int num = 0;
 	public int getNum() {
 		return num;
 	}
@@ -22,7 +22,7 @@ class IncThread extends Thread{
 	}
 }
 
-//스레드가 1개일 때 
+// 스레드가 1개일 때 값이 정상적인 것을 확인함
 public class ThreadSyncError {
 	public static void main(String[] args) {
 		Value val = new Value();
@@ -35,10 +35,11 @@ public class ThreadSyncError {
 			it1.join();
 			it2.start();
 			it2.join();
-		} catch (InterruptedException e) {
+		}catch(InterruptedException e) {
 			e.printStackTrace();
 		}
-		System.out.println(val.getNum());
+		System.out.println("시스템을 종료합니다.");
+		System.out.println("증가된 숫자는 " + val.getNum());
 	}
 
 }

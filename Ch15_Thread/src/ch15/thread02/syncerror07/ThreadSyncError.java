@@ -1,7 +1,7 @@
 package ch15.thread02.syncerror07;
 
 class Value{
-	private int num=0;
+	private int num = 0;
 	public int getNum() {
 		return num;
 	}
@@ -22,23 +22,24 @@ class IncThread extends Thread{
 	}
 }
 
-//스레드가 1개일 때 
+// 스레드가 1개일 때 값이 정상적인 것을 확인함
 public class ThreadSyncError {
 	public static void main(String[] args) {
 		Value val = new Value();
 		IncThread it1 = new IncThread(val);
 		IncThread it2 = new IncThread(val);
-		// 스레드를 동시에 진행했을 때 원하는 결과가 나오지 않느다.
+		// 스레드를 동시에 진행했을 때 원하는 결과가 나오지 않는다.
 		it1.start();
 		it2.start();
 		
 		try {
 			it1.join();
 			it2.join();
-		} catch (InterruptedException e) {
+		}catch(InterruptedException e) {
 			e.printStackTrace();
 		}
-		System.out.println(val.getNum());
+		System.out.println("시스템을 종료합니다.");
+		System.out.println("최종 증간된 숫자는 " + val.getNum());
 	}
 
 }
