@@ -7,4 +7,5 @@ public class Person {
 	public void action2(Speakable speakable) {
 		speakable.speak("안녕하세요");
 	}
+
 }

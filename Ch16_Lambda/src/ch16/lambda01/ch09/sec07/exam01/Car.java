@@ -1,25 +1,30 @@
 package ch16.lambda01.ch09.sec07.exam01;
 
 public class Car {
-	//필드에 Tire 객체 대입
+	// 필드에 Tire 객체 대입
 	private Tire tire1 = new Tire();
 	
 	// 필드에 익명 자식 객체 대입
-	private Tire tire2  = new Tire() {
+	private Tire tire2 = new Tire() {
 		@Override
 		public void roll() {
 			System.out.println("익명 자식 Tire 객체 1이 굴러갑니다.");
-		}//자식 클래스를 만들어도 되지만 이렇게 하는게 간편하다.
+		}// 자식 클래스를 만들어도 되지만 이렇게 하는 게 간편하다.
 	};
-	//메소드(필드 이용)
+	
+	public void TireInfo() {
+		System.out.println(tire1);
+		System.out.println(tire2);
+	}
+	
+	// 메소드(필드 이용)
 	public void run1() {
 		tire1.roll();
 		tire2.roll();
 	}
-	
-	//메소드(로컬 변수 이용)
+	// 메소드(로컬 변수 이용)
 	public void run2() {
-		//로컬 변수에 익명 자식 객체 대입
+		// 로컬 변수에 익명 자식 객체 대입
 		Tire tire = new Tire() {
 			@Override
 			public void roll() {

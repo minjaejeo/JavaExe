@@ -8,10 +8,11 @@ interface PrintString{
 public class TestLambda {
 	public static void main(String[] args) {
 		PrintString reStr = returnString();
-		reStr.showString("hello");
+		reStr.showString("hello ");
+		
 	}
-	
 	public static PrintString returnString() {
 		return s->System.out.println(s+"world");
 	}
+
 }

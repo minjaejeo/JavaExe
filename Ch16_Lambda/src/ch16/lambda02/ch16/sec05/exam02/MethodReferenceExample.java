@@ -4,9 +4,7 @@ public class MethodReferenceExample {
 	public static void main(String[] args) {
 		Person person = new Person();
 		
-//		int ret = str.compareToIgnoreCase(str1);
-//		(a,b) -> a.compareToIgnoreCase(b)
-		person.ordering(String :: compareToIgnoreCase);//메소드 참조
+		person.ordering(String :: compareToIgnoreCase);
 	}
 
 }
