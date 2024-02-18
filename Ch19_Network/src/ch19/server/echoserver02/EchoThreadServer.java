@@ -17,17 +17,19 @@ public class EchoThreadServer {
 			ServerSocket server = new ServerSocket(PORT);
 			System.out.println("Client 접속을 기다립니다...");
 			while(true) {
-				// 1. 클라이언트 접속(스트림이 연결되면 socket객체가 리턴된다.)
+				//1. 클라이언트 접속(스트림이 연결되면 socket객체가 리턴된다.)
 				Socket socket = server.accept();
-				// 2. 클라이언트 담당 스레드 생성하여 통신을 전담시킨다.
+				//2. 클라이언트 담당 스레드 생성하여 통신을 전담시킨다.
 				EchoThread echoThread = new EchoThread(socket);
 				echoThread.start();
-			}			
+				
+			}
+			
 		}catch(Exception e) {
 			System.out.println(e.getMessage());
 		}
-
 	}
+
 }
 
 class EchoThread extends Thread{
@@ -52,18 +54,16 @@ class EchoThread extends Thread{
 				line = br.readLine();
 				if(line==null)
 					break;
-				System.out.println("클라이언트로부터 수신: " + line);
+				System.out.println("클라이언트로부터 수신:" + line);
 				
-				// 수신하자마자 Client한테 echo 전송
+				//수신하자마자 Client한테 echo 전송
 				pw.println(line);
 				pw.flush();
 			}
-			System.out.println(inetAddr.getHostAddress() + " Client 종료");
+			System.out.println(inetAddr.getHostAddress() + "Client 종료");
 			
 		}catch(Exception e) {
 			System.out.println(e.getMessage());
 		}
 	}
 }
-
-
