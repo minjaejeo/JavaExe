@@ -31,15 +31,15 @@ public class ThreadSyncError {
 		// 스레드를 동시에 진행했을 때 원하는 결과가 나오지 않는다.
 		it1.start();
 		it2.start();
+		// join은 앞에가 끝나면 뒤에 시작!
 		
 		try {
 			it1.join();
 			it2.join();
-		}catch(InterruptedException e) {
+		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
-		System.out.println("시스템을 종료합니다.");
-		System.out.println("최종 증간된 숫자는 " + val.getNum());
+		System.out.println(val.getNum());
 	}
-
 }
+

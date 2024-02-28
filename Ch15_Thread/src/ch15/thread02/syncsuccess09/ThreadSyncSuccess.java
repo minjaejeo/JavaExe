@@ -1,19 +1,20 @@
 package ch15.thread02.syncsuccess09;
 
 class Value{
-	private int num =0;
+	private int num = 0;
 	public int getNum() {
 		return num;
 	}
-	/*아래 연산이 끝날 때까지 1개의 스레드만 진입해서 동작하도록 한다.
+	/*
+	 * 아래 연산이 끝날 때까지 1개의 스레드만 진입해서 동작하도록 한다.
 	 * 즉, 연산을 보호한다.
-	 * 이 연산이 끝날때까지 Context Switching이 일어나지 않는다.*/
+	 * 이 연산이 끝날때까지 Context Switching이 일어나지 않는다.
+	 */
 	// 메서드 전체가 동기화가 필요할 때
 	public synchronized void Increment() {
-		// 아래 연산이 '스레드의 컨텍스트 스위칭'으로 부터 보호한다.
+		// 아래 연산이 '스레드 컨텍스트 스위칭'으로부터 보호되어야 한다.
 		num++;
 	}
-	
 }
 
 class IncThread extends Thread{
@@ -49,5 +50,7 @@ public class ThreadSyncSuccess {
 		}
 		System.out.println(val.getNum());
 	}
-
 }
+
+
+
