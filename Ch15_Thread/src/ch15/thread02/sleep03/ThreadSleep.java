@@ -9,7 +9,7 @@ public class ThreadSleep {
 				int sum = 0;
 				for(int i=0;i<10;i++) {
 					sum+=i;
-					System.out.println("누적합=" + sum);
+					System.out.println("누적합= " + sum);
 					
 					try {
 						Thread.sleep(100);
@@ -19,7 +19,7 @@ public class ThreadSleep {
 				}
 				System.out.println("총합은 " + sum);
 				Thread workThread = Thread.currentThread();
-				System.out.println(workThread.getName() + " 스레드 종료");
+				System.out.println(workThread.getName() + "스레드 종료");
 				
 			}
 		});
@@ -28,10 +28,9 @@ public class ThreadSleep {
 		try {
 			Thread.sleep(1100);
 		}catch(InterruptedException e) {
-			e.getStackTrace();
+			e.printStackTrace();
 		}
 		Thread mainThread = Thread.currentThread();
 		System.out.println(mainThread.getName() + " 스레드 종료");
 	}
-
 }
