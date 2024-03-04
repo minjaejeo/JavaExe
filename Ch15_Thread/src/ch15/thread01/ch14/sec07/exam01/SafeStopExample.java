@@ -10,7 +10,6 @@ public class SafeStopExample {
 		}catch(InterruptedException e) {
 			
 		}
-		printThread.setStop(true);//PrintThread를 종료하기 위해 stop 필드 값 변경
+		printThread.setStop(true); // PrintThread를 종료하기 위해 stop 필드 값 변경
 	}
-
 }

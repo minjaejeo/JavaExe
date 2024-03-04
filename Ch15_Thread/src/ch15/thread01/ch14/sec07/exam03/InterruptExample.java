@@ -7,12 +7,9 @@ public class InterruptExample {
 		
 		try {
 			Thread.sleep(100);
-			
-		}catch (InterruptedException e) {
+		}catch(InterruptedException e) {
 			
 		}
-		
 		thread.interrupt();
 	}
-
 }
