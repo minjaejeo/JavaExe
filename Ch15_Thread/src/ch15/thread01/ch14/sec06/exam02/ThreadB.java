@@ -9,9 +9,8 @@ public class ThreadB extends Thread {
 	}
 	@Override
 	public void run() {
-		for(int i=0;i<1;i++) {
+		for(int i=0; i<10000; i++) {
 			workObject.methodB();//동기화 메소드 호출
 		}
 	}
-
 }

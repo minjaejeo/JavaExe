@@ -12,5 +12,4 @@ public class SynchronizedExample {
 		user2Thread.setCalculator(calculator);
 		user2Thread.start();
 	}
-
 }
